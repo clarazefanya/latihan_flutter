@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:latihan_flutter/tugas1flutter.dart';
+import 'package:latihan_flutter/tugas2flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: .fromSeed(seedColor: const Color.fromARGB(255, 205, 200, 255)),
       ),
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: ProfilSaya(),
+      home: ProfilLengkap(),
     );
   }
 }
