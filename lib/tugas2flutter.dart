@@ -106,7 +106,7 @@ class ProfilLengkap extends StatelessWidget {
             width: 100,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/Gemini_Generated_Image_t1zuwtt1zuwtt1zu2.png")
+                image: AssetImage("assets/images/logodb.png")
               )
             )
           )
