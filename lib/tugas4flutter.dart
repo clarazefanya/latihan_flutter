@@ -19,19 +19,26 @@ class CreateSceneLevel extends StatelessWidget {
             Text("Level: 1"),
             Text("Scene: 6"),
             SizedBox(height: 10),
-            Text("* wajib diisi", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
+            Text(
+              "* wajib diisi",
+              style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+            ),
             SizedBox(height: 30),
 
             //Formulir Pengguna
             Row(
               children: [
-                Text("Tipe Soal (Pilihan Ganda/Susun Kata/Tulis Query)", style: TextStyle(fontWeight: FontWeight.bold)),
+                Text(
+                  "Tipe Soal (Pilihan Ganda/Susun Kata/Tulis Query)",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 Text(" *", style: TextStyle(color: Colors.red)),
               ],
             ),
             TextField(
               decoration: InputDecoration(
                 hintText: "Tuliskan tipe soal",
+                prefixIcon: Icon(Icons.task),
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: 12,
                   vertical: 8,
@@ -52,6 +59,7 @@ class CreateSceneLevel extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                 hintText: "Tuliskan soal",
+                prefixIcon: Icon(Icons.question_mark),
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: 12,
                   vertical: 8,
@@ -63,7 +71,10 @@ class CreateSceneLevel extends StatelessWidget {
             ),
             SizedBox(height: 10),
 
-            Text("Jawaban (Isi sesuai tipe soal)", style: TextStyle(fontWeight: FontWeight.bold)),
+            Text(
+              "Jawaban (Isi sesuai tipe soal)",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
             SizedBox(height: 2),
             Text("Untuk Pilihan Ganda", style: TextStyle(fontSize: 13)),
             Row(
@@ -73,9 +84,11 @@ class CreateSceneLevel extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.abc),
                       contentPadding: EdgeInsets.symmetric(
                         horizontal: 12,
-                        vertical: 8),
+                        vertical: 8,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -92,9 +105,11 @@ class CreateSceneLevel extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.abc),
                       contentPadding: EdgeInsets.symmetric(
                         horizontal: 12,
-                        vertical: 8),
+                        vertical: 8,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -111,9 +126,11 @@ class CreateSceneLevel extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.abc),
                       contentPadding: EdgeInsets.symmetric(
                         horizontal: 12,
-                        vertical: 8),
+                        vertical: 8,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -124,12 +141,17 @@ class CreateSceneLevel extends StatelessWidget {
             ),
             SizedBox(height: 10),
 
-            Text("Untuk Susun Kata dan Tulis Query", style: TextStyle(fontSize: 13)),
+            Text(
+              "Untuk Susun Kata dan Tulis Query",
+              style: TextStyle(fontSize: 13),
+            ),
             TextField(
               decoration: InputDecoration(
+                prefixIcon: Icon(Icons.edit),
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: 12,
-                  vertical: 8),
+                  vertical: 8,
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -144,7 +166,6 @@ class CreateSceneLevel extends StatelessWidget {
             listTileScene(3, "Susun Kata"),
             listTileScene(2, "Susun Kata"),
             listTileScene(1, "Pilihan Ganda"),
-
           ],
         ),
       ),
@@ -154,13 +175,15 @@ class CreateSceneLevel extends StatelessWidget {
   Container listTileScene(int scene, String tipeSoal) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.black), borderRadius: BorderRadius.circular(10)),
+        border: Border.all(color: Colors.black),
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: ListTile(
-              leading: Icon(Icons.movie, color: Colors.amber,),
-              title: Text("Scene $scene"),
-              subtitle: Text("Tipe Soal: $tipeSoal"),
-              trailing: Icon(Icons.arrow_forward_ios),
-            ),
+        leading: Icon(Icons.movie, color: Colors.amber),
+        title: Text("Scene $scene"),
+        subtitle: Text("Tipe Soal: $tipeSoal"),
+        trailing: Icon(Icons.arrow_forward_ios),
+      ),
     );
   }
 }
