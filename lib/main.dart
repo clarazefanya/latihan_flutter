@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_flutter/tugas1flutter.dart';
-import 'package:latihan_flutter/tugas2flutter.dart';
-import 'package:latihan_flutter/tugas3flutter.dart';
-import 'package:latihan_flutter/tugas4flutter.dart';
+import 'package:latihan_flutter/tugas5flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,10 +29,12 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 205, 200, 255)),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 205, 200, 255),
+        ),
       ),
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: CreateSceneLevel(),
+      home: Tugas5(),
     );
   }
 }
