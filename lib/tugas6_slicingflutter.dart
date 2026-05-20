@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:latihan_flutter/extension/navigator.dart';
+import 'package:latihan_flutter/tugas5flutter.dart';
 
 class SlicingFlutter extends StatefulWidget {
   const SlicingFlutter({super.key});
@@ -83,17 +85,8 @@ class _SlicingFlutterState extends State<SlicingFlutter> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           print("Sudah memenuhi syarat");
-
-                          ///kotak dialog
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return AlertDialog(
-                                title: Text("Berhasil"),
-                                content: Text("Anda berhasil login"),
-                              );
-                            },
-                          );
+                          //ke halaman tugas5flutter
+                          context.pushReplacement(Tugas5());
                         } else {
                           print("Belum memenuhi syarat");
                           //toast message
@@ -226,9 +219,6 @@ class _SlicingFlutterState extends State<SlicingFlutter> {
         hintStyle: TextStyle(color: Colors.white, fontSize: 14),
         prefixIcon: Icon(iconTxtField, color: const Color(0xFFC4C4C4)),
         contentPadding: EdgeInsets.symmetric(vertical: 16),
-        // focusedBorder: UnderlineInputBorder(
-        //   borderSide: BorderSide(color: Colors.red),
-        // ),
         errorBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.red),
         ),
