@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_flutter/tugas6_slicingflutter.dart';
-import 'package:latihan_flutter/tugas7flutter.dart';
-import 'package:latihan_flutter/tugas8flutter/tugas8flutter.dart';
+import 'package:latihan_flutter/tugas9flutter/tugas9flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +34,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: BottomNavBar(),
+      home: DataDinamis(),
     );
   }
 }
