@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:latihan_flutter/database/preference_handler.dart';
+import 'package:latihan_flutter/extension/navigator.dart';
+import 'package:latihan_flutter/tugas6_slicingflutter.dart';
 
 class InputInteraktif extends StatefulWidget {
   const InputInteraktif({super.key});
@@ -20,6 +23,14 @@ class _InputInteraktifState extends State<InputInteraktif> {
   TimeOfDay? selectedTime; //time picker
 
   @override
+  //logout (tugas11flutterA)
+  void _prosesLogout() async {
+    await PreferenceHandler.logOut();
+    if (!mounted) return;
+    context.pushAndRemoveAll(SlicingFlutter());
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       //jika switch on warna background menjadi gelap, jika off menjadi terang
@@ -27,7 +38,10 @@ class _InputInteraktifState extends State<InputInteraktif> {
 
       //appbar
       appBar: AppBar(
-        title: Text("Input Interaktif", style: TextStyle(color: isOn ? Colors.white : Colors.black),),
+        title: Text(
+          "Input Interaktif",
+          style: TextStyle(color: isOn ? Colors.white : Colors.black),
+        ),
         centerTitle: true,
         //jika switch on warna background menjadi gelap, jika off menjadi terang
         backgroundColor: isOn
@@ -90,6 +104,21 @@ class _InputInteraktifState extends State<InputInteraktif> {
                 Navigator.pop(context);
               },
             ),
+            //logout (tugas11flutterA)
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text("Logout"),
+              onTap: () {
+                setState(() {
+                  _prosesLogout();
+                });
+                Navigator.pop(context);
+                // snackbar
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text("Berhasil Logout")));
+              },
+            ),
           ],
         ),
       ),
@@ -121,7 +150,10 @@ class _InputInteraktifState extends State<InputInteraktif> {
   Column syaratketentuanCheckbox() {
     return Column(
       children: [
-        Text("Saya menyetujui persyaratan", style: TextStyle(fontWeight: FontWeight.bold)),
+        Text(
+          "Saya menyetujui persyaratan",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         Checkbox(
           value: isChecked,
           onChanged: (bool? value) {
@@ -143,7 +175,10 @@ class _InputInteraktifState extends State<InputInteraktif> {
   Column modetampilanSwitch() {
     return Column(
       children: [
-        Text("Aktifkan mode gelap", style: TextStyle(fontWeight: FontWeight.bold)),
+        Text(
+          "Aktifkan mode gelap",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         Switch(
           value: isOn,
           onChanged: (bool? value) {
@@ -163,7 +198,10 @@ class _InputInteraktifState extends State<InputInteraktif> {
         Text("Pilih kategori", style: TextStyle(fontWeight: FontWeight.bold)),
         DropdownButton<String>(
           value: selectedDropdown,
-          hint: Text("Pilih kategori", style: TextStyle(fontWeight: FontWeight.bold)),
+          hint: Text(
+            "Pilih kategori",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
           items: ["Elektronik", "Pakaian", "Makanan", "Lainnya"].map((
             String val,
           ) {
@@ -186,7 +224,10 @@ class _InputInteraktifState extends State<InputInteraktif> {
   Column pilihtanggalDatePicker(BuildContext context) {
     return Column(
       children: [
-        Text("Pilih Tanggal Lahir", style: TextStyle(fontWeight: FontWeight.bold)),
+        Text(
+          "Pilih Tanggal Lahir",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         ElevatedButton(
           onPressed: () async {
             final DateTime? picked = await showDatePicker(

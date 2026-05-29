@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:latihan_flutter/database/preference_handler.dart';
 import 'package:latihan_flutter/extension/navigator.dart';
-import 'package:latihan_flutter/tugas5flutter.dart';
+import 'package:latihan_flutter/tugas8flutter/tugas8flutter.dart';
 
 class SlicingFlutter extends StatefulWidget {
   const SlicingFlutter({super.key});
@@ -82,11 +83,14 @@ class _SlicingFlutterState extends State<SlicingFlutter> {
                       style: ElevatedButton.styleFrom(
                         minimumSize: Size(double.infinity, 56),
                       ),
-                      onPressed: () {
+                      onPressed: () async {
                         if (_formKey.currentState!.validate()) {
                           print("Sudah memenuhi syarat");
-                          //ke halaman tugas5flutter
-                          context.pushReplacement(Tugas5());
+                          //tugas11flutterA: ubah status menjadi setLogin(true) lalu arahkan ke Home.
+                          await PreferenceHandler.setLogin(true);
+                          if (!mounted) return;
+                          //ke halaman home
+                          context.pushReplacement(BottomNavBar());
                         } else {
                           print("Belum memenuhi syarat");
                           //toast message

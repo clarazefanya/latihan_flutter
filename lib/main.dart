@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_flutter/tugas10flutter/tugas10flutter.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:latihan_flutter/database/preference_handler.dart';
+import 'package:latihan_flutter/tugas11flutterA/splashscreen.dart';
 
-void main() {
+void main() async {
+  //memastikan semua yg sebelum runApp berhasil dijalankan, baru jalanin runApp
+  WidgetsFlutterBinding.ensureInitialized();
+  //connect database local
+  await initializeDateFormatting('id_ID', null);
+  await PreferenceHandler.init();
+
+  //run app
   runApp(const MyApp());
 }
 
@@ -34,7 +43,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: Tugas10Pendaftaran(),
+      home: SplashScreen(),
     );
   }
 }
