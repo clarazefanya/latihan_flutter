@@ -22,7 +22,6 @@ class _InputInteraktifState extends State<InputInteraktif> {
   DateTime? selectedDate; //date picker
   TimeOfDay? selectedTime; //time picker
 
-  @override
   //logout (tugas11flutterA)
   void _prosesLogout() async {
     await PreferenceHandler.logOut();

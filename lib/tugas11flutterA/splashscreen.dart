@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:latihan_flutter/database/preference_handler.dart';
 import 'package:latihan_flutter/extension/navigator.dart';
-import 'package:latihan_flutter/tugas6_slicingflutter.dart';
-import 'package:latihan_flutter/tugas8flutter/tugas8flutter.dart';
+import 'package:latihan_flutter/tugas11flutter/login_deebee.dart';
+import 'package:latihan_flutter/tugas11flutter/realtime_list.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -24,9 +24,9 @@ class _SplashScreenState extends State<SplashScreen> {
     if (!mounted) return;
 
     if (isLogin) {
-      context.pushReplacement(BottomNavBar()); //halaman home
+      context.pushReplacement(RealTimeList()); //halaman home
     } else {
-      context.pushReplacement(SlicingFlutter()); //halaman login
+      context.pushReplacement(LoginDeeBee()); //halaman login
     }
   }
 
