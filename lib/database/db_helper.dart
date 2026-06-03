@@ -78,25 +78,25 @@ class DBHelper {
     return results.map((map) => UserModelSql.fromMap(map)).toList();
   }
 
-  // // Fungsi untuk menghapus user berdasarkan ID
-  // Future<void> deleteUser(int id) async {
-  //   final db = await database;
-  //   await db.delete('users', where: 'id = ?', whereArgs: [id]);
-  // }
+  // Fungsi untuk menghapus user berdasarkan ID
+  Future<void> deleteUser(int id) async {
+    final db = await database;
+    await db.delete('users', where: 'id = ?', whereArgs: [id]);
+  }
 
-  // // Fungsi untuk memperbarui data user
-  // Future<bool> updateUser(UserModelSql pengguna) async {
-  //   final db = await database;
-  //   try {
-  //     int count = await db.update(
-  //       'users',
-  //       pengguna.toMap(),
-  //       where: 'id = ?',
-  //       whereArgs: [pengguna.id],
-  //     );
-  //     return count > 0;
-  //   } catch (e) {
-  //     return false;
-  //   }
-  // }
+  // Fungsi untuk memperbarui data user
+  Future<bool> updateUser(UserModelSql pengguna) async {
+    final db = await database;
+    try {
+      int count = await db.update(
+        'users',
+        pengguna.toMap(),
+        where: 'id = ?',
+        whereArgs: [pengguna.id],
+      );
+      return count > 0;
+    } catch (e) {
+      return false;
+    }
+  }
 }
