@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:latihan_flutter/database/preference_handler.dart';
-import 'package:latihan_flutter/tugas11flutterA/splashscreen.dart';
+import 'package:latihan_flutter/tugas14flutter/views/product_list.dart';
 
 void main() async {
   //memastikan semua yg sebelum runApp berhasil dijalankan, baru jalanin runApp
@@ -43,8 +43,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: SplashScreen(),
+      home: DummyJsonProducts(),
     );
   }
 }
-
