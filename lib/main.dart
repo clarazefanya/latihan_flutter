@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:latihan_flutter/database/preference_handler.dart';
-import 'package:latihan_flutter/day35/views/splash_screen.dart';
+import 'package:latihan_flutter/tugas1516flutter/views/splash_screen.dart';
 
 void main() async {
   //memastikan semua yg sebelum runApp berhasil dijalankan, baru jalanin runApp

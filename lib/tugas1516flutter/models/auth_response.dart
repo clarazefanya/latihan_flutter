@@ -5,7 +5,7 @@
 import 'dart:convert';
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:latihan_flutter/day35/models/user_model.dart';
+import 'package:latihan_flutter/tugas1516flutter/models/user_model.dart';
 
 part 'auth_response.g.dart';
 

@@ -1,23 +1,23 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:latihan_flutter/day35/models/batch_response.dart';
-import 'package:latihan_flutter/day35/models/profile_response.dart';
-import 'package:latihan_flutter/day35/models/training_response.dart';
-import 'package:latihan_flutter/day35/services/auth_service.dart';
-import 'package:latihan_flutter/day35/services/dio_client.dart';
-import 'package:latihan_flutter/day35/services/token_storage.dart';
-import 'package:latihan_flutter/day35/views/detail_user_screen.dart';
-import 'package:latihan_flutter/day35/views/edit_profile_screen.dart';
-import 'package:latihan_flutter/day35/views/login_screen.dart';
+import 'package:latihan_flutter/tugas1516flutter/models/batch_response.dart';
+import 'package:latihan_flutter/tugas1516flutter/models/profile_response.dart';
+import 'package:latihan_flutter/tugas1516flutter/models/training_response.dart';
+import 'package:latihan_flutter/tugas1516flutter/services/auth_service.dart';
+import 'package:latihan_flutter/tugas1516flutter/services/dio_client.dart';
+import 'package:latihan_flutter/tugas1516flutter/services/token_storage.dart';
+import 'package:latihan_flutter/tugas1516flutter/views/detail_user_screen.dart';
+import 'package:latihan_flutter/tugas1516flutter/views/edit_profile_screen.dart';
+import 'package:latihan_flutter/tugas1516flutter/views/login_screen.dart';
 
-class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({super.key});
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
 
   @override
-  State<DashboardScreen> createState() => _DashboardScreenState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen> {
+class _ProfileScreenState extends State<ProfileScreen> {
   late final AuthService _authService;
   late Future<Map<String, dynamic>> _dashboardDataFuture;
 
@@ -64,6 +64,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
     return Scaffold(
       backgroundColor: backgroundColor,
+      appBar: AppBar(
+        title: const Text(
+          "Profil Saya",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0.5,
+        // foregroundColor: const Color(0xFF2E2E3A),
+      ),
       body: FutureBuilder<Map<String, dynamic>>(
         future: _dashboardDataFuture,
         builder: (context, snapshot) {
@@ -140,13 +149,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   clipBehavior: Clip.none,
                   children: [
                     Container(
-                      height: 220,
+                      height: 100,
                       decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [primaryColor, accentColor],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
+                        color: primaryColor,
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(32.0),
                           bottomRight: Radius.circular(32.0),
@@ -154,39 +159,40 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                     ),
                     // Tombol Logout di Kanan Atas
-                    Positioned(
-                      top: 40,
-                      right: 16,
-                      child: IconButton(
-                        icon: const Icon(
-                          Icons.logout_rounded,
-                          color: Colors.white,
-                        ),
-                        onPressed: () async {
-                          await TokenStorage.clearToken();
-                          if (context.mounted) {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const LoginScreen(),
-                              ),
-                            );
-                          }
-                        },
-                      ),
-                    ),
+                    // Positioned(
+                    //   top: 40,
+                    //   right: 16,
+                    //   child: IconButton(
+                    //     icon: const Icon(
+                    //       Icons.logout_rounded,
+                    //       color: Colors.white,
+                    //     ),
+                    //     onPressed: () async {
+                    //       await TokenStorage.clearToken();
+                    //       if (context.mounted) {
+                    //         Navigator.pushReplacement(
+                    //           context,
+                    //           MaterialPageRoute(
+                    //             builder: (context) => const LoginScreen(),
+                    //           ),
+                    //         );
+                    //       }
+                    //     },
+                    //   ),
+                    // ),
                     // Judul Dashboard
-                    const Positioned(
-                      top: 48,
-                      child: Text(
-                        "Profil Saya",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    // const Positioned(
+                    //   top: 48,
+                    //   // left: 24,
+                    //   child: Text(
+                    //     "Profil Saya",
+                    //     style: TextStyle(
+                    //       fontSize: 20,
+                    //       fontWeight: FontWeight.bold,
+                    //       color: Colors.white,
+                    //     ),
+                    //   ),
+                    // ),
                     // Foto Profil Mengambang
                     Positioned(
                       bottom: -50,
@@ -381,6 +387,74 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             ),
                           );
                         },
+                      ),
+                      const SizedBox(height: 20.0),
+                      // Tombol logout
+                      TextButton(
+                        onPressed: () async {
+                          final shouldLogout = await showDialog<bool>(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: Text(
+                                  "Logout",
+                                  style: TextStyle(
+                                    color: primaryColor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                content: const Text(
+                                  "Apakah kamu yakin ingin keluar dari akun ini?",
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(context, false),
+                                    child: const Text("Batal"),
+                                  ),
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(context, true),
+                                    child: const Text("Ya"),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+
+                          if (shouldLogout == true) {
+                            await TokenStorage.clearToken();
+
+                            if (context.mounted) {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const LoginScreen(),
+                                ),
+                              );
+                            }
+                          }
+                        },
+                        style: TextButton.styleFrom(
+                          // side: BorderSide(color: primaryColor, width: 2),
+                          backgroundColor: primaryColor.withValues(alpha: 0.1),
+                          // shape: RoundedRectangleBorder(
+                          //   borderRadius: BorderRadius.circular(8),
+                          // ),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 12,
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.logout_rounded),
+                            SizedBox(width: 5),
+                            Text("Logout"),
+                          ],
+                        ),
                       ),
                     ],
                   ),

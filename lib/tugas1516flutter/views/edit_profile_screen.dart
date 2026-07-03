@@ -5,9 +5,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:latihan_flutter/day35/models/user_model.dart';
-import 'package:latihan_flutter/day35/services/auth_service.dart';
-import 'package:latihan_flutter/day35/services/dio_client.dart';
+import 'package:latihan_flutter/tugas1516flutter/models/user_model.dart';
+import 'package:latihan_flutter/tugas1516flutter/services/auth_service.dart';
+import 'package:latihan_flutter/tugas1516flutter/services/dio_client.dart';
 
 class EditProfileScreen extends StatefulWidget {
   final UserModel user;

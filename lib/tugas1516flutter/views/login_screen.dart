@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:latihan_flutter/day35/services/auth_service.dart';
-import 'package:latihan_flutter/day35/services/dio_client.dart';
-import 'package:latihan_flutter/day35/services/token_storage.dart';
-import 'package:latihan_flutter/day35/views/dashboard_screen.dart';
-import 'package:latihan_flutter/day35/views/register_screen.dart';
+import 'package:latihan_flutter/tugas1516flutter/services/auth_service.dart';
+import 'package:latihan_flutter/tugas1516flutter/services/dio_client.dart';
+import 'package:latihan_flutter/tugas1516flutter/services/token_storage.dart';
+import 'package:latihan_flutter/tugas1516flutter/views/main_navigation_screen.dart';
+import 'package:latihan_flutter/tugas1516flutter/views/register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -69,7 +69,9 @@ class _LoginScreenState extends State<LoginScreen> {
           // Pindah ke halaman Dashboard dan bersihkan stack navigasi
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => const DashboardScreen()),
+            MaterialPageRoute(
+              builder: (context) => const MainNavigationScreen(),
+            ),
           );
         }
       } else {
@@ -138,11 +140,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ],
                     ),
-                    child: const Icon(
-                      Icons.lock_person_outlined,
-                      size: 64.0,
-                      color: primaryColor,
-                    ),
+                    child:
+                        //const Icon(
+                        //   Icons.lock_person_outlined,
+                        //   size: 64.0,
+                        //   color: primaryColor,
+                        // ),
+                        Image.asset("assets/images/hadir-logo.png", width: 64),
                   ),
                 ),
                 const SizedBox(height: 24.0),

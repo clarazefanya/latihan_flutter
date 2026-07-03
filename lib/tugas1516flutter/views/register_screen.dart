@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:latihan_flutter/day35/models/batch_response.dart';
-import 'package:latihan_flutter/day35/models/training_response.dart';
-import 'package:latihan_flutter/day35/services/auth_service.dart';
-import 'package:latihan_flutter/day35/services/dio_client.dart';
-import 'package:latihan_flutter/day35/services/token_storage.dart';
-import 'package:latihan_flutter/day35/views/dashboard_screen.dart';
+import 'package:latihan_flutter/tugas1516flutter/models/batch_response.dart';
+import 'package:latihan_flutter/tugas1516flutter/models/training_response.dart';
+import 'package:latihan_flutter/tugas1516flutter/services/auth_service.dart';
+import 'package:latihan_flutter/tugas1516flutter/services/dio_client.dart';
+import 'package:latihan_flutter/tugas1516flutter/services/token_storage.dart';
+import 'package:latihan_flutter/tugas1516flutter/views/main_navigation_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -124,7 +124,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
           // Pindah ke Dashboard
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => const DashboardScreen()),
+            MaterialPageRoute(
+              builder: (context) => const MainNavigationScreen(),
+            ),
           );
         }
       } else {

@@ -1,4 +1,4 @@
-package com.example.latihan_flutter
+package com.ppkd.hadir
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:latihan_flutter/day35/models/user_model.dart';
+import 'package:latihan_flutter/tugas1516flutter/models/user_model.dart';
 
 class DetailUserScreen extends StatelessWidget {
   final UserModel user;
@@ -14,15 +13,15 @@ class DetailUserScreen extends StatelessWidget {
     this.batchName,
   });
 
-  String _formatDate(DateTime? dateTime) {
-    if (dateTime == null) return "-";
-    try {
-      return DateFormat.yMMMMd('id_ID').format(dateTime);
-    } catch (_) {
-      // Fallback jika formatting dengan id_ID gagal/locale belum di-load
-      return DateFormat.yMMMMd().format(dateTime);
-    }
-  }
+  // String _formatDate(DateTime? dateTime) {
+  //   if (dateTime == null) return "-";
+  //   try {
+  //     return DateFormat.yMMMMd('id_ID').format(dateTime);
+  //   } catch (_) {
+  //     // Fallback jika formatting dengan id_ID gagal/locale belum di-load
+  //     return DateFormat.yMMMMd().format(dateTime);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -95,12 +94,12 @@ class DetailUserScreen extends StatelessWidget {
                             ? "Laki-laki"
                             : (user.jenisKelamin == 'P' ? "Perempuan" : "-"),
                       ),
-                      const Divider(height: 24.0, thickness: 0.8),
-                      _buildDetailItem(
-                        icon: Icons.calendar_today_outlined,
-                        label: "Tanggal Terdaftar",
-                        value: _formatDate(user.createdAt),
-                      ),
+                      // const Divider(height: 24.0, thickness: 0.8),
+                      // _buildDetailItem(
+                      //   icon: Icons.calendar_today_outlined,
+                      //   label: "Tanggal Terdaftar",
+                      //   value: _formatDate(user.createdAt),
+                      // ),
                     ],
                   ),
                 ),
@@ -167,12 +166,12 @@ class DetailUserScreen extends StatelessWidget {
                             ? const Color(0xFF00BFA5)
                             : Colors.amber[800],
                       ),
-                      const Divider(height: 24.0, thickness: 0.8),
-                      _buildDetailItem(
-                        icon: Icons.perm_identity_outlined,
-                        label: "ID Pengguna",
-                        value: user.id?.toString() ?? "-",
-                      ),
+                      // const Divider(height: 24.0, thickness: 0.8),
+                      // _buildDetailItem(
+                      //   icon: Icons.perm_identity_outlined,
+                      //   label: "ID Pengguna",
+                      //   value: user.id?.toString() ?? "-",
+                      // ),
                     ],
                   ),
                 ),

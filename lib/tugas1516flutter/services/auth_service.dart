@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:latihan_flutter/day35/models/auth_response.dart';
-import 'package:latihan_flutter/day35/models/profile_response.dart';
-import 'package:latihan_flutter/day35/models/training_response.dart';
-import 'package:latihan_flutter/day35/models/batch_response.dart';
+import 'package:latihan_flutter/tugas1516flutter/models/auth_response.dart';
+import 'package:latihan_flutter/tugas1516flutter/models/batch_response.dart';
+import 'package:latihan_flutter/tugas1516flutter/models/profile_response.dart';
+import 'package:latihan_flutter/tugas1516flutter/models/training_response.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'auth_service.g.dart';
