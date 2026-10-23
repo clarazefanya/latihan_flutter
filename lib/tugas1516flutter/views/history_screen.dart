@@ -133,8 +133,9 @@ class HistoryScreenState extends State<HistoryScreen> {
       }
     } on DioException catch (e) {
       String errMsg = "Gagal menghapus data";
-      if (e.response?.data != null)
+      if (e.response?.data != null) {
         errMsg = e.response!.data['message'] ?? errMsg;
+      }
       _showSnackBar(errMsg, isError: true);
     } catch (e) {
       _showSnackBar(e.toString(), isError: true);

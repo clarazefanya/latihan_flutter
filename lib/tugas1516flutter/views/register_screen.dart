@@ -615,7 +615,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 items: _batches.map((batch) {
                                   // Menggunakan title jika name kosong sebagai fallback
                                   final displayTitle =
-                                      batch.batchKe ?? "Batch ${batch.id}";
+                                      batch.batchKe?.toString() ?? "Batch ${batch.id}";
                                   return DropdownMenuItem<int>(
                                     value: batch.id,
                                     child: Text(displayTitle),

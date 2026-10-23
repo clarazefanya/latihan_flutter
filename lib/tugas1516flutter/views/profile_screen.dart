@@ -135,7 +135,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
           final matchedBatch = batches.firstWhere(
             (b) => b.id.toString() == user.batchId.toString(),
-            orElse: () => BatchModel(batchKe: "Batch Tidak Ditemukan"),
+            // orElse: () => BatchModel(batchKe: "Batch Tidak Ditemukan"),
+            orElse: () => BatchModel(batchKe: 0000),
           );
 
           final imageUrl = _getProfilePhotoUrl(user.profilePhoto);
@@ -333,7 +334,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                matchedBatch.batchKe ?? "-",
+                                matchedBatch.batchKe?.toString() ?? "-",
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -382,7 +383,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               builder: (context) => DetailUserScreen(
                                 user: user,
                                 trainingName: matchedTraining.title,
-                                batchName: matchedBatch.batchKe,
+                                batchName: matchedBatch.batchKe?.toString(),
                               ),
                             ),
                           );

@@ -19,7 +19,7 @@ Map<String, dynamic> _$BatchResponseToJson(BatchResponse instance) =>
 
 BatchModel _$BatchModelFromJson(Map<String, dynamic> json) => BatchModel(
   id: (json['id'] as num?)?.toInt(),
-  batchKe: json['batch_ke'] as String?,
+  batchKe: (json['batch_ke'] as num?)?.toInt(),
 );
 
 Map<String, dynamic> _$BatchModelToJson(BatchModel instance) =>

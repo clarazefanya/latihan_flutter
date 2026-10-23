@@ -30,7 +30,7 @@ class BatchModel {
   int? id;
 
   @JsonKey(name: "batch_ke")
-  String? batchKe;
+  int? batchKe;
 
   BatchModel({this.id, this.batchKe});
 
